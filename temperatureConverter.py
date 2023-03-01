@@ -19,7 +19,7 @@ class Temperature:
         ttk.Label(mainframe, text="is equivalent to ").grid(row=1, column=1, sticky=(W,E))
         ttk.Label(mainframe, textvariable = self.celcius).grid(row=1, column=2, sticky=(W,E))
         ttk.Label(mainframe, text = "degree celcuis").grid(row=1, column=3, sticky=(W,E))
-        ttk.Button(mainframe, text="calculate", command=self.get_value).grid(row=2, column=3, sticky=(W,E))
+        ttk.Button(mainframe, text="calculate", command=self.get_value, default=ACTIVE).grid(row=2, column=3, sticky=(W,E))
         
         for child in mainframe.winfo_children():
             child.grid_configure(padx=5, pady=5)
