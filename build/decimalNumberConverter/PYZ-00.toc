@@ -1,5 +1,5 @@
 ('C:\\Users\\Dilraj '
- 'Singh\\Desktop\\python\\Base64\\build\\decimalNumberConverter\\PYZ-00.pyz',
+ 'Singh\\Desktop\\python\\Base64\\build\\DecimalNumberConverter\\PYZ-00.pyz',
  [('_compat_pickle',
    'C:\\Users\\Dilraj '
    'Singh\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\_compat_pickle.py',

@@ -28,9 +28,6 @@ class NumberConverter:
         ttk.Label(mainframe, textvariable = self.message, font="TkTextFont").grid(row=2, column=0, sticky=(W))
         ttk.Label(mainframe, textvariable=self.outputNumber, font="TkFixedFont").grid(row=2, column=1, sticky=(W))
         
-        img = PhotoImage(file="images/doge-small-size.gif") 
-        ttk.Label(mainframe, image = img, anchor=CENTER).grid(row=4)
-        
         for child in mainframe.winfo_children():
             child.grid_configure(padx=5, pady=5)
             
@@ -67,10 +64,7 @@ class NumberConverter:
         return finalAnswer 
                 
     def on_input_change(self,event, *args):
-        # This function will be called each time the input box content changes
-        input_value = event.widget.get()  # Get the current input box content
-        # Do something with the input value, for example, print it to the console
-        self.decimalNumber.set(input_value)
+        self.decimalNumber.set(event.widget.get())
         self.getOutput()
         
 
