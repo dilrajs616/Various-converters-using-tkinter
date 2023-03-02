@@ -10,23 +10,26 @@ class NumberConverter:
         
         mainframe = ttk.Frame(root, padding="3 3 12 12", borderwidth=2, relief=RAISED)
         mainframe.grid(row=0, column=0, sticky=(W,E,S,N))
-        root.rowconfigure(0, weight=1)
-        root.columnconfigure(0, weight=1)
         
         self.baseNumber = StringVar()
-        ttk.Label(mainframe, text = "Select base from 2, 8 or 16").grid(row=0, column=0, sticky=(W))
+        baseInput = ttk.Label(mainframe, text = "Select base from 2, 8 or 16", borderwidth=5, relief="ridge")
+        baseInput.grid(row=0, column=0, sticky=(W))
         baseNumber_enter = ttk.Entry(mainframe, width=15, textvariable=self.baseNumber)
         baseNumber_enter.grid(row=0, column=1, sticky=(E))
         
+        
         self.decimalNumber = StringVar()
-        ttk.Label(mainframe, text="Enter the decimal number \t\t\t").grid(row=1, column=0, sticky=(W))
+        decimalInput = ttk.Label(mainframe, text="Enter the decimal number \t\t")
+        decimalInput.grid(row=1, column=0, sticky=(W))
         decimalNumber_enter = ttk.Entry(mainframe, width=15)
         decimalNumber_enter.grid(row=1, column=1, sticky=(E))
         
         self.outputNumber = StringVar()
         self.message = StringVar()
-        ttk.Label(mainframe, textvariable = self.message, font="TkTextFont").grid(row=2, column=0, sticky=(W))
-        ttk.Label(mainframe, textvariable=self.outputNumber, font="TkFixedFont").grid(row=2, column=1, sticky=(W))
+        outputText = ttk.Label(mainframe, textvariable = self.message, font="TkTextFont")
+        outputText.grid(row=2, column=0, sticky=(W))
+        output = ttk.Label(mainframe, textvariable=self.outputNumber, font="TkFixedFont")
+        output.grid(row=2, column=1, sticky=(W))
         
         for child in mainframe.winfo_children():
             child.grid_configure(padx=5, pady=5)
@@ -35,6 +38,14 @@ class NumberConverter:
         baseNumber_enter.bind("<KeyRelease>", self.getOutput)
         decimalNumber_enter.bind("<KeyRelease>", self.on_input_change)
             
+        root.rowconfigure(0, weight=1)
+        root.columnconfigure(0, weight=1)
+        mainframe.rowconfigure(0, weight=1)
+        mainframe.rowconfigure(1, weight=1)
+        mainframe.rowconfigure(2, weight=1)
+        mainframe.columnconfigure(0, weight=1)
+        mainframe.columnconfigure(1, weight=1)
+        
     def getOutput(self, *args):
         try:
             self.localBase = int(self.baseNumber.get())
